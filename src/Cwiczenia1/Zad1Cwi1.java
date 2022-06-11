@@ -1,7 +1,7 @@
 package Cwiczenia1;
 import static java.lang.Math.*;
 
-public class Zad1{
+public class Zad1Cwi1{
     public static void main(String[]args){
        int l=4;
        int doIlu=3;
