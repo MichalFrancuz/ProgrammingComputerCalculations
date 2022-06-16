@@ -15,12 +15,17 @@ public class RownanieKwadratowe{
         else{
             double delta;
             delta=b*b-4*a*c;
-            if(delta<0)System.out.println("Brak rozwiązan.");
+            if(delta<0){
+                int liczbaPier=0;
+                System.out.println("Brak rozwiązan.");
+            }
             else if(delta==0){
+                int liczbaPier=1;
                 double x;
                 x=-b/(2*a);
                 System.out.print("Jedno podwójne rozwiązanie x="+x+" .");
             } else{
+                int liczbaPier=2;
                 double x1,x2;
                 x1=(-b+sqrt(delta))/(2*a);
                 x2=(-b-sqrt(delta))/(2*a);
@@ -28,15 +33,22 @@ public class RownanieKwadratowe{
             }
         }
     }
-        static void RownanieLiniowe(double a,double b){
-            if(a==0){
-                if(b==0)System.out.println("Rownaie tozsamosciowe.");
-                else System.out.println("Rownanie sprzeczne.");
-            }
-            else{
-                double x;
-                x=-b/a;
-                System.out.print("Równanie liniowe, x="+x+" .");
-            }
+    static void RownanieLiniowe(double a,double b){
+        if(a==0){
+            if(b==0)System.out.println("Rownaie tozsamosciowe.");
+            else System.out.println("Rownanie sprzeczne.");
+        }
+        else{
+            double x;
+            x=-b/a;
+            System.out.print("Równanie liniowe, x="+x+" .");
+        }
     }
 }
+class Delta{
+    static void OblicznieDelty(double a,double b,double c){
+        double delta=b*b-4*a*c;
+    }
+}
+//powiazanie delty ze zmiennymi do obliczenia wynikow pierwiastkow z testem array. Jakby klasa robocza wyluskajaca w zmiennej liczbe pierwiastkow w zaleznosci od
+//pobranych zmiennych od uzytkownika do obliczenia tych pierwiatkow, dzieki temu bede mial klase zalezana ktora wyluska potrzebne informacje do testow.
