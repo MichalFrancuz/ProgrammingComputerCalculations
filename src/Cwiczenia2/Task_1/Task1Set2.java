@@ -46,7 +46,7 @@ public class Task1Set2 {
         for (int i = 0; i < x.length - 1; i++) {
             dx[i] = x[i + 1] - x[i];
             if (dx[i] == 0) {
-                throw new IllegalArgumentException("X must be montotonic. A duplicate x-value was found");
+                throw new IllegalArgumentException("X must be monotonic. A duplicate x-value was found");
             }
             if (dx[i] < 0) {
                 throw new IllegalArgumentException("X must be sorted");
@@ -95,7 +95,7 @@ public class Task1Set2 {
             //dx[i] = x[i + 1] - x[i];
             dx[i] = x[i + 1].subtract(x[i]);
             if (dx[i].equals(new BigDecimal(zero, dx[i].scale()))) {
-                throw new IllegalArgumentException("X must be montotonic. A duplicate " + "x-value was found");
+                throw new IllegalArgumentException("X must be monotonic. A duplicate " + "x-value was found");
             }
             if (dx[i].signum() < 0) {
                 throw new IllegalArgumentException("X must be sorted");
@@ -158,6 +158,8 @@ public class Task1Set2 {
             System.out.println("Input number of range repeatability: ");
             double rangeRepeatability = scan.nextDouble();
 
+            scan.close();
+
             double[] range3 = new double[(int) ((rangeEnding - rangeStarting) / rangeRepeatability) + 1];
             // Length of table must be in int, so I had to convert double type to int type.
             double[] measurement3 = {4.2, 7.4, 22.4, 75.3, 9.1, 65.3, 1000, 783.33, 43.2, 91.1}; // Table with examples values.
@@ -171,14 +173,14 @@ public class Task1Set2 {
                 for (int i = 0; i < range3.length; i++) { // Put values from parameters witch was inputted from user to table range3.
                     range3[i] = rangeStarting;
                     rangeStarting += rangeRepeatability;
-                    System.out.println(range3.length);
-                    System.out.println(Arrays.toString(range3)); // Print values of table range3.
-                    System.out.println(Arrays.toString(interpLinear(time, measurement3, range3)));
-                    // Call method with new range -> calculate required values for inputting range of time.
                 }
             } else {
                 System.out.println("Some of your values are negative or equals zero, please make sure that all your input are positive number.");
             }
+            System.out.println(range3.length);
+            System.out.println(Arrays.toString(range3)); // Print values of table range3.
+            System.out.println(Arrays.toString(interpLinear(time, measurement3, range3)));
+            // Call method with new range -> calculate required values for inputting range of time.
         }
     }
 }
