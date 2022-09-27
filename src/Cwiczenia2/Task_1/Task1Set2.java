@@ -3,41 +3,32 @@ package Cwiczenia2.Task_1;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Task1Set2 {
     public static void main(String[] args) {
 
         double[] measurement = new double[10];
-        double[] time = new double[10];
-        double[] range = {3.2}; // what's value for time 3,2 minutes
-        double[] measurement2 = {4.4, 2.0, 11.0, 21.5, 7.5};
-        double[] time2 = {0, 1, 2, 3, 4};
-        double[] range2 = {2.5, 3.0, 3.1};
+        double[] time = new double[10]; // [min]
+        double[] range = {3.2}; // t = 3,2 [min]
+        double[] measurement2 = {4.4, 2.0, 11.0, 21.5, 7.5}; // Table from requirement 3c of this task.
+        double[] time2 = {0, 1, 2, 3, 4}; // [min]
+        double[] range2 = {2.5, 3.1}; // t = 2,5 [min]; t = 3,1 [min]; table from requirement 3c of this task.
 
         for (int i = 0; i < measurement.length; i++) {
-            double accuracy = (double) i / 10; // here you can set values for measurement
+            double accuracy = (double) i * 875; // Change values to see some differences in results.
             measurement[i] = accuracy;
         }
 
         for (int i = 0; i < time.length; i++) {
-            time[i] = i; // i it's assigned to minute
+            time[i] = i;
         }
 
-        System.out.println(Arrays.toString(interpLinear(time, measurement, range))); // call method with our result dependents mainly on range
+        System.out.println(Arrays.toString(interpLinear(time, measurement, range))); // Call method -> result of requirement 1. of this task.
         System.out.println(Arrays.toString(interpLinear(time2, measurement2, range2)));
-        find_y(5);
+        // Call method -> result of requirement 3a, 3b of this task.
     }
 
-    public static double[] find_y(double x) throws IllegalArgumentException {
-
-        if (x < 0) {
-            throw new IllegalArgumentException("X cannot be a negative number");
-        }
-        double[] measurement = new double[10];
-        double[] time = new double[10];
-        double[] range = {x};
-        return interpLinear(time, measurement, range);
-    }
     public static double[] interpLinear(double[] x, double[] y, double[] xi) throws IllegalArgumentException {
 
         if (x.length != y.length) {
@@ -51,7 +42,7 @@ public class Task1Set2 {
         double[] slope = new double[x.length - 1];
         double[] intercept = new double[x.length - 1];
 
-        // Calculate the line equation (i.e. slope and intercept) between each point
+        // Calculate the line equation (i.e. slope and intercept) between each point.
         for (int i = 0; i < x.length - 1; i++) {
             dx[i] = x[i + 1] - x[i];
             if (dx[i] == 0) {
@@ -65,7 +56,7 @@ public class Task1Set2 {
             intercept[i] = y[i] - x[i] * slope[i];
         }
 
-        // Perform the interpolation here
+        // Perform the interpolation here.
         double[] yi = new double[xi.length];
         for (int i = 0; i < xi.length; i++) {
             if ((xi[i] > x[x.length - 1]) || (xi[i] < x[0])) {
@@ -96,7 +87,7 @@ public class Task1Set2 {
         BigDecimal[] slope = new BigDecimal[x.length - 1];
         BigDecimal[] intercept = new BigDecimal[x.length - 1];
 
-        // Calculate the line equation (i.e. slope and intercept) between each point
+        // Calculate the line equation (i.e. slope and intercept) between each point.
         BigInteger zero = new BigInteger("0");
         BigDecimal minusOne = new BigDecimal(-1);
 
@@ -118,7 +109,7 @@ public class Task1Set2 {
             //intercept[i] = y[i].subtract(x[i]).multiply(slope[i]);
         }
 
-        // Perform the interpolation here
+        // Perform the interpolation here.
         BigDecimal[] yi = new BigDecimal[xi.length];
         for (int i = 0; i < xi.length; i++) {
             //if ((xi[i] > x[x.length - 1]) || (xi[i] < x[0])) {
@@ -152,5 +143,42 @@ public class Task1Set2 {
         }
 
         return interpLinear(xd, y, xid);
+    }
+
+    static class find_y { // All class is result of requirement 3a, 3b of this task.
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+
+            System.out.println("Input number of range starting: ");
+            double rangeStarting = scan.nextDouble();
+
+            System.out.println("Input number of range ending: ");
+            double rangeEnding = scan.nextDouble();
+
+            System.out.println("Input number of range repeatability: ");
+            double rangeRepeatability = scan.nextDouble();
+
+            double[] range3 = new double[(int) ((rangeEnding - rangeStarting) / rangeRepeatability) + 1];
+            // Length of table must be in int, so I had to convert double type to int type.
+            double[] measurement3 = {4.2, 7.4, 22.4, 75.3, 9.1, 65.3, 1000, 783.33, 43.2, 91.1}; // Table with examples values.
+            double[] time = new double[10]; // [min]
+
+            for (int i = 0; i < time.length; i++) {
+                time[i] = i;
+            }
+
+            if (rangeStarting > 0 && rangeEnding > 0 && rangeRepeatability > 0) {
+                for (int i = 0; i < range3.length; i++) { // Put values from parameters witch was inputted from user to table range3.
+                    range3[i] = rangeStarting;
+                    rangeStarting += rangeRepeatability;
+                    System.out.println(range3.length);
+                    System.out.println(Arrays.toString(range3)); // Print values of table range3.
+                    System.out.println(Arrays.toString(interpLinear(time, measurement3, range3)));
+                    // Call method with new range -> calculate required values for inputting range of time.
+                }
+            } else {
+                System.out.println("Some of your values are negative or equals zero, please make sure that all your input are positive number.");
+            }
+        }
     }
 }
