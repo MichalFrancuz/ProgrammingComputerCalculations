@@ -1,8 +1,8 @@
-package Cwiczenia1.Zadanie_3;
+package Set_of_task_1.Task_3;
 
 import java.util.Arrays;
 
-public class Zad3Cwi1 {
+public class Task3Set1 {
     public static strictfp double[] metoda(double d1, double d2, int n, double potega) {
         double[] y = new double[n];
         double[] p = linspace(d1, d2, n);

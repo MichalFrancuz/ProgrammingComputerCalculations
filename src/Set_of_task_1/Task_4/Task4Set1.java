@@ -1,8 +1,8 @@
-package Cwiczenia1.Zadanie_4;
+package Set_of_task_1.Task_4;
 
 import java.util.Scanner;
 
-public class Zad4Cwi1 {
+public class Task4Set1 {
     public static void main(String[] args) {
         double liczba = 0;
         double suma = 0;

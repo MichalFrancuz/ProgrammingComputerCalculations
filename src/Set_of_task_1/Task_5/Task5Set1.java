@@ -1,6 +1,6 @@
-package Cwiczenia1.Zadanie_5;
+package Set_of_task_1.Task_5;
 
-public class Zad5Cwi1 {
+public class Task5Set1 {
 
     public static void main(String[] args) {
 // węzły interpolacji oraz odpowiadające im wartości

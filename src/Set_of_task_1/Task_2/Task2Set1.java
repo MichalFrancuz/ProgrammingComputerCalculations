@@ -1,8 +1,8 @@
-package Cwiczenia1.Zadanie_2;
+package Set_of_task_1.Task_2;
 
 import static java.lang.Math.PI;
 
-public class Zad2Cwi1 {
+public class Task2Set1 {
     public static void main(String[] args) {
         double dobryWynikCiA = 12.566370614359172;
         int r = 2;

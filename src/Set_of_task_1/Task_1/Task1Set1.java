@@ -1,8 +1,8 @@
-package Cwiczenia1.Zadanie_1;
+package Set_of_task_1.Task_1;
 
 import static java.lang.Math.*;
 
-public class Zad1Cwi1 {
+public class Task1Set1 {
     public static void main(String[] args) {
         int l = 4;
         int doIlu = 3;
