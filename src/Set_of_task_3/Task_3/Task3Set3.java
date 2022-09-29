@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Task3Set3 {
     static double[][] matrix1L = {{1, 0, 0},
             {1, 1, 0},
-            {1, 5 / 3, 1}};
+            {1, (double) 5 / 3, 1}};
     static double[][] matrix1U = {{1, 2, 4},
             {0, 3, 21},
             {0, 0, 0}};
