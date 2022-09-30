@@ -15,10 +15,10 @@ public class Task2Set3 {
                                {5, -18, 13}}; // 5, -18
 
     public static void main(String[] args) {
-        System.out.println(calculateMatrix3x3(matrix1)+"\n"); // singular and well-conditioned matrix
-        System.out.println(calculateMatrix3x3(matrix2)+"\n"); // non-singular and ill-conditioned matrix
-        System.out.println(calculateMatrix3x3(matrix3)+"\n"); // non-singular and well-conditioned matrix
-        System.out.println(calculateMatrix3x3(matrix4)+"\n"); // singular and well-conditioned matrix
+        System.out.println(calculateMatrix3x3(matrix1) + "\n"); // singular and well-conditioned matrix
+        System.out.println(calculateMatrix3x3(matrix2) + "\n"); // non-singular and ill-conditioned matrix
+        System.out.println(calculateMatrix3x3(matrix3) + "\n"); // non-singular and well-conditioned matrix
+        System.out.println(calculateMatrix3x3(matrix4) + "\n"); // singular and well-conditioned matrix
     }
 
     public static double calculateMatrix3x3(double[][] x) {
