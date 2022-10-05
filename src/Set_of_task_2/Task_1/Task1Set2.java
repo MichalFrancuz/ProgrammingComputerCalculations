@@ -1,4 +1,4 @@
-package Cwiczenia2.Task_1;
+package Set_of_task_2.Task_1;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

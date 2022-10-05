@@ -1,4 +1,4 @@
-package Cwiczenia2.Task_2;
+package Set_of_task_2.Task_2;
 
 import java.util.Random;
 
